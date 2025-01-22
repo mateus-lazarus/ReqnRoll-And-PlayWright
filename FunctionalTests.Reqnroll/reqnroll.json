@@ -1,0 +1,6 @@
+{
+  "parallel": {
+    "type": "scenario",
+    "threadCount": 4
+  }
+}

@@ -6,7 +6,7 @@ namespace FunctionalTests.Reqnroll.Pages;
 
 public class MySiteHomePage(Hooks hooks)
 {
-    private readonly IPage _page = hooks.Page;
+    private readonly Hooks _hooks = hooks;
 
     public ILocator AboutMe => _page?.Locator("a[href='/about-me']");
     public ILocator CalculatorLink => _page?.Locator("a[href='/calculator']");
@@ -17,11 +17,6 @@ public class MySiteHomePage(Hooks hooks)
 
     public async Task GoTo()
     {
-        if (_page is null)
-        {
-            return;
-        }
-
-        await _page.GotoAsync("https://mateuslazarus.com");
+        await (await _hooks.playwrightTestManager.AcquirePageAsync()).GotoAsync("https://mateuslazarus.com");
     }
 }

@@ -9,7 +9,7 @@ namespace FunctionalTests.Reqnroll.StepDefinitions;
 [Binding]
 public sealed class MySiteHomePageStepDefinitions(Hooks hooks, MySiteHomePage mySiteHomePage)
 {
-    private readonly IPage _page = hooks.Page;
+    private readonly Task<IPage> _page = hooks.playwrightTestManager.AcquirePageAsync();
     private readonly MySiteHomePage _mySiteHomePage = mySiteHomePage;
 
     // Given Scenarios 
@@ -83,44 +83,44 @@ public sealed class MySiteHomePageStepDefinitions(Hooks hooks, MySiteHomePage my
     }
 
     [Then("I should see calculator page")]
-    public void ThenISeeTheCalculatorPage()
+    public async Task ThenISeeTheCalculatorPageAsync()
     {
-        string url = _page?.Url ?? string.Empty;
+        string url = (await _page).Url ?? string.Empty;
         url.Should().Be("https://mateuslazarus.com/calculator/");
     }
 
     [Then("I should see the portfolio page")]
-    public void ThenISeeThePortfolioPage()
+    public async Task ThenISeeThePortfolioPage()
     {
-        string url = _page?.Url ?? string.Empty;
+        string url = (await _page).Url ?? string.Empty;
         url.Should().Be("https://mateuslazarus.com/about-me");
     }
 
     [Then("I should see mockendpointstool page")]
-    public void ThenISeeTheMockEndpointsToolPage()
+    public async Task ThenISeeTheMockEndpointsToolPage()
     {
-        string url = _page?.Url ?? string.Empty;
+        string url = (await _page).Url ?? string.Empty;
         url.Should().Be("https://mateuslazarus.com/mock-endpoints-tool");
     }
 
     [Then("I should see the linkedin page")]
-    public void ThenISeeTheLinkedinPage()
+    public async Task ThenISeeTheLinkedinPage()
     {
-        string url = _page?.Url ?? string.Empty;
+        string url = (await _page).Url ?? string.Empty;
         url.Should().Contain("https://www.linkedin.com/");
     }
 
     [Then("I should see the github page")]
-    public void ThenISeeTheGithubPage()
+    public async Task ThenISeeTheGithubPage()
     {
-        string url = _page?.Url ?? string.Empty;
+        string url = (await _page).Url ?? string.Empty;
         url.Should().Be("https://github.com/mateus-lazarus");
     }
 
     [Then("I should see the medium page")]
-    public void ThenISeeTheMediumPage()
+    public async Task ThenISeeTheMediumPage()
     {
-        string url = _page?.Url ?? string.Empty;
+        string url = (await _page).Url ?? string.Empty;
         url.Should().Be("https://medium.com/@mateus-lazarus");
     }
 }
