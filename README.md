@@ -1,8 +1,8 @@
 # An entrypoint to use Reqnroll and Playwright altogether in a simple way
 Some considerations:
-- It is configured to NOT be headless, you could change that easily
+- It is configured to NOT be headless, you could change that easily in the hooks.cs
 - Feel free to use my site to test your scripts and play along with reqnroll and playwright. [The Calculator Website](https://mateuslazarus.com/calculator) is specially good for that.
-- There are two branches, one with parralellism and other without
+- There are three branches, one with parallelism by class-level, one with parallelism by method level, and the master branch without any
 
 ## What You Will Learn
 
