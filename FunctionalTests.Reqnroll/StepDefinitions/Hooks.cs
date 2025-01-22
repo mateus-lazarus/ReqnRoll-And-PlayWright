@@ -1,6 +1,5 @@
 ﻿using Microsoft.Playwright;
 using Reqnroll;
-using System.Text.RegularExpressions;
 using System.Threading.Tasks;
 
 
@@ -18,7 +17,7 @@ public class Hooks(ScenarioContext scenarioContext)
         var playwright = await Playwright.CreateAsync();
         var browser = await playwright.Chromium.LaunchAsync(new BrowserTypeLaunchOptions
         {
-            Headless = false
+            Headless = true
         });
         var context = await browser.NewContextAsync();
 

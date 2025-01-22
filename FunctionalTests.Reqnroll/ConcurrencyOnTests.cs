@@ -1,6 +1,6 @@
 ﻿using Microsoft.VisualStudio.TestTools.UnitTesting;
 
 [assembly: Parallelize(
-    Workers = 1,           // Specific number of workers
-    Scope = ExecutionScope.MethodLevel // Method level parallelization
+    Workers = 0,           // Specific number of workers
+    Scope = ExecutionScope.ClassLevel // Method level parallelization
 )]
